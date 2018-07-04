@@ -26,11 +26,11 @@ public class WebUI {
 		}
 	
 		// click on specific Element based on text
-		public static void clickOnElementByText(List<WebElement> links, String description, String data) {
-			for (int i = 0; i < links.size(); i++) {
-				if (links.get(i).getText().equals(data)) {
+		public static void clickOnElementByText(List<WebElement> elements, String description, String data) {
+			for (int i = 0; i < elements.size(); i++) {
+				if (elements.get(i).getText().equals(data)) {
 					try {
-						links.get(i).click();
+						elements.get(i).click();
 						break;
 					} catch (NoSuchElementException ex) {
 						System.out.println(ex.getMessage());
@@ -67,6 +67,59 @@ public class WebUI {
 			}
 		}
 		
+		
+		     //click on element by value attribute
+				public static void clickOnElementByAttribute(WebElement element,String attributeType,String attributeValue)
+				{ 
+					try{
+					   if(element.getAttribute(attributeType).equalsIgnoreCase(attributeValue))
+						{
+							element.click();
+						}
+						
+					}
+					catch(NoSuchElementException ex)
+					{
+						System.out.println(ex.getMessage());
+					}
+					catch(StaleElementReferenceException ex)
+					{
+						System.out.println(ex.getMessage());
+					}
+					catch(Exception ex)
+					{
+						System.out.println(ex.getMessage());
+					}
+				}
+				
+				
+				//click on element from list of elements  based on value attribute
+				public static void clickOnElementsByAttribute(List<WebElement> elements,String attributeType,String attributeValue)
+				{ 
+					try{
+					  for(int i=0;i<elements.size();i++)
+					  {
+						  if(elements.get(i).getAttribute(attributeType).equals(attributeValue))
+						  {
+							  elements.get(i).click();
+							  break;
+						  }
+					  }
+						
+					}
+					catch(NoSuchElementException ex)
+					{
+						System.out.println(ex.getMessage());
+					}
+					catch(StaleElementReferenceException ex)
+					{
+						System.out.println(ex.getMessage());
+					}
+					catch(Exception ex)
+					{
+						System.out.println(ex.getMessage());
+					}
+				}
 		
 		//click on element by tagname
 		public static void clickOnElementByTagName(WebElement element,String tagName)
