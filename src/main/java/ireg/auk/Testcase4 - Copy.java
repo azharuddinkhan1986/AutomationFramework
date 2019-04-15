@@ -13,5 +13,6 @@ public class App
         int x =10;
         int y= 20;
         int z =100;
+        int l =1;
     }
 }
