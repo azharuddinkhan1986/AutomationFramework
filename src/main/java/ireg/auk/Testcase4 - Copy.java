@@ -12,6 +12,5 @@ public class App
         System.out.println( "New Line" );
         int y= 20;
         int z =100;
-	int a = 14;
     }
 }
